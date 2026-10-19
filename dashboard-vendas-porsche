@@ -1,0 +1,7 @@
+dashboard-vendas-porsche/
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── data/
+    └── vendas_porsche_demo.csv
