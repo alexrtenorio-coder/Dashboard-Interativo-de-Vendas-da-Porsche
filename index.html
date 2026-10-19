@@ -1,0 +1,154 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard demonstrativo de vendas Porsche.">
+  <title>Dashboard de Vendas | Porsche</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">P</span>
+      <div>
+        <p class="eyebrow">SALES INTELLIGENCE</p>
+        <h1>Dashboard de Vendas</h1>
+      </div>
+    </div>
+    <span class="demo-pill">DADOS FICTÍCIOS</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">VISÃO EXECUTIVA</p>
+        <h2>Desempenho comercial</h2>
+        <p class="muted">Explore receita, volume e composição das vendas.</p>
+      </div>
+      <button id="resetFilters" class="button" type="button">Limpar filtros</button>
+    </section>
+
+    <div class="notice">
+      <strong>Nota:</strong> este dashboard usa 100 vendas sintéticas para fins
+      educacionais. Não são dados oficiais nem representam resultados reais da Porsche.
+    </div>
+
+    <section class="filters">
+      <label>Modelo
+        <select id="modelFilter"><option value="">Todos os modelos</option></select>
+      </label>
+      <label>Região
+        <select id="regionFilter"><option value="">Todas as regiões</option></select>
+      </label>
+      <label>Canal
+        <select id="channelFilter"><option value="">Todos os canais</option></select>
+      </label>
+      <label>Ano
+        <select id="yearFilter"><option value="">Todos os anos</option></select>
+      </label>
+    </section>
+
+    <section class="kpis">
+      <article class="kpi">
+        <span>Faturamento líquido</span>
+        <strong id="revenueKpi">—</strong>
+        <small>Soma das vendas filtradas</small>
+      </article>
+      <article class="kpi">
+        <span>Unidades vendidas</span>
+        <strong id="unitsKpi">—</strong>
+        <small>Quantidade de registros</small>
+      </article>
+      <article class="kpi">
+        <span>Ticket médio</span>
+        <strong id="ticketKpi">—</strong>
+        <small>Faturamento por unidade</small>
+      </article>
+      <article class="kpi">
+        <span>Desconto médio</span>
+        <strong id="discountKpi">—</strong>
+        <small>Média percentual</small>
+      </article>
+    </section>
+
+    <section class="chart-grid">
+      <article class="panel wide">
+        <h3>Faturamento por mês</h3>
+        <p class="muted">Como a receita evolui ao longo do ano?</p>
+        <div class="chart-wrap"><canvas id="monthlyChart"></canvas></div>
+      </article>
+      <article class="panel">
+        <h3>Faturamento por modelo</h3>
+        <p class="muted">Quais modelos contribuem mais?</p>
+        <div class="chart-wrap"><canvas id="modelChart"></canvas></div>
+      </article>
+      <article class="panel">
+        <h3>Unidades por região</h3>
+        <p class="muted">Como as vendas se distribuem?</p>
+        <div class="chart-wrap"><canvas id="regionChart"></canvas></div>
+      </article>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="table-heading">
+        <div>
+          <h3>Detalhamento das vendas</h3>
+          <p id="tableCount" class="muted">Carregando…</p>
+        </div>
+        <input id="searchInput" type="search"
+          placeholder="Buscar modelo, região ou vendedor…"
+          aria-label="Buscar vendas">
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th><th>Venda</th><th>Modelo</th><th>Região</th>
+              <th>Canal</th><th>Desconto</th><th>Valor líquido</th>
+            </tr>
+          </thead>
+          <tbody id="salesTable"></tbody>
+        </table>
+      </div>
+      <div class="table-footer">
+        <span id="pageInfo"></span>
+        <div>
+          <button id="prevPage" class="button" type="button">Anterior</button>
+          <button id="nextPage" class="button" type="button">Próxima</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="insights">
+      <p class="eyebrow">PERGUNTAS DE NEGÓCIO</p>
+      <h2>O que queremos descobrir?</h2>
+      <div class="insight-grid">
+        <article>
+          <span>01</span>
+          <h3>Mix de produtos</h3>
+          <p>Quais modelos representam a maior parcela do faturamento?</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Desempenho regional</h3>
+          <p>Quais regiões concentram mais unidades vendidas?</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Descontos e receita</h3>
+          <p>Como o desconto médio varia entre as vendas?</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <span>Projeto educacional de Business Intelligence</span>
+      <span>HTML · CSS · JavaScript · Chart.js</span>
+    </footer>
+  </main>
+</body>
+</html>
